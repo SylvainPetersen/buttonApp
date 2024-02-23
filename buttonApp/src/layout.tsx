@@ -4,7 +4,9 @@ import {
   Tab,
   makeStyles,
   shorthands,
+  Avatar,
 } from "@fluentui/react-components";
+import type { AvatarProps } from "@fluentui/react-components";
 
 const useStyles = makeStyles({
   root: {
@@ -20,11 +22,16 @@ const useStyles = makeStyles({
 export function Layout() {
   const styles = useStyles();
   return (
-    <div>
-      <main className={styles.content}>
-        <h1>Layout</h1>
-        <Outlet />
-      </main>
-    </div>
+    <>
+      <div>
+        <main className={styles.content}>
+          <h1>Layout</h1>
+          <Outlet />
+        </main>
+      </div>
+      <div>
+        <Avatar name="Sylvain Petersen" />
+      </div>
+    </>
   );
 }

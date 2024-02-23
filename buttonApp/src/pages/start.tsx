@@ -3,8 +3,12 @@ import { Button } from "@fluentui/react-components";
 export function Start() {
   return (
     <>
-      <h1>||Start</h1>
-      <Button>Test</Button>
+      <div>
+        <h1>||Start</h1>
+      </div>
+      <div>
+        <Button>Test</Button>
+      </div>
     </>
   );
 }
