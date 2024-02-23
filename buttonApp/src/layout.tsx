@@ -22,6 +22,7 @@ export function Layout() {
   return (
     <div>
       <main className={styles.content}>
+        <h1>Layout</h1>
         <Outlet />
       </main>
     </div>

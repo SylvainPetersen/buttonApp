@@ -1,3 +1,10 @@
+import { Button } from "@fluentui/react-components";
+
 export function Start() {
-  <h1>Start page</h1>;
+  return (
+    <>
+      <h1>||Start</h1>
+      <Button>Test</Button>
+    </>
+  );
 }
