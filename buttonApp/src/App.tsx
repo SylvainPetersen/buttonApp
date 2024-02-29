@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Start } from "./pages/start";
+import { Fileadmin } from "./pages/file-admin";
 import { Layout } from "./layout";
 import "normalize.css";
 
@@ -18,6 +19,10 @@ export function App() {
         {
           index: true,
           element: <Start />,
+        },
+        {
+          path: "/fileadmin",
+          element: <Fileadmin />,
         },
       ],
     },
