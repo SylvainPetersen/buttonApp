@@ -15,7 +15,7 @@ export function Fileadmin() {
   return (
     <>
       <div>
-        <h1>Fil Administration</h1>
+        <h1>Tidsregistrering</h1>
       </div>
     </>
   );

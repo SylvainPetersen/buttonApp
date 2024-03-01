@@ -3,6 +3,7 @@ import { Start } from "./pages/start";
 import { Fileadmin } from "./pages/file-admin";
 import { Layout } from "./layout";
 import "normalize.css";
+import { makeStaticStyles } from "@fluentui/react-components";
 
 import {
   RouteObject,

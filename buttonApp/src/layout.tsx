@@ -36,6 +36,9 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "flex-start",
+    marginLeft: "30px",
+    marginTop: "20px",
+    height: "100%",
   },
 });
 
@@ -125,7 +128,7 @@ export const Layout = () => {
       </InlineDrawer>
 
       <div className={navstyles.content}>
-        <h1>Layout</h1>
+        <h1>iEDI FastTimeIt</h1>
         <Outlet />
       </div>
     </div>
