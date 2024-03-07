@@ -14,6 +14,7 @@ import {
   Option,
 } from "@fluentui/react-components";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content: {
@@ -29,28 +30,36 @@ export function Start() {
   const divstyles = useStyles();
   const options = ["Dansk", "English"];
   const [selected, setSelected] = useState({ key: options[0] });
+  const [t, i18n] = useTranslation("global");
+
+  const handleChange = (option: string) => {
+    i18n.changeLanguage(option);
+    setSelected({ ...selected, key: option });
+  };
 
   return (
     <>
       <div className={divstyles.content}>
         <div>
-          <h2>Velkommen</h2>
+          <h2>{t("start.welcome")}</h2>
         </div>
         <div>
-          <p>FastTimeIt er installeret korrekt på denne computer.</p>
+          <p>{t("start.description")}</p>
         </div>
         <div>
-          {/* <Dropdown placeholder={options[0]}>
-            {options.map((option) => (
-              <Option key={option}>{option}</Option>
-            ))}
-          </Dropdown> */}
-          <Dropdown placeholder={options[0]}>
-            {options.map((option) => (
-              <Option key={option} disabled={option === selected}>
-                {option}
-              </Option>
-            ))}
+          <Dropdown placeholder={selected.key}>
+            {options
+              .filter((options) => !options.includes(selected.key))
+              .map((option) => (
+                <Option
+                  key={option}
+                  onClick={() => {
+                    handleChange(option);
+                  }}
+                >
+                  {option}
+                </Option>
+              ))}
           </Dropdown>
         </div>
       </div>

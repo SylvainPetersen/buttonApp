@@ -21,6 +21,7 @@ import {
   Person24Regular,
 } from "@fluentui/react-icons";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   root: {
@@ -65,6 +66,7 @@ export const Layout = () => {
   const toggle = navToggle();
   const navbuttons = navButtons();
   const navigate = useNavigate();
+  const [t, i18n] = useTranslation("global");
 
   function handleClick(value: string) {
     navigate(value);
@@ -87,8 +89,9 @@ export const Layout = () => {
             <Persona
               size={"huge"}
               avatar={<Person24Regular />}
-              primaryText="Gæst"
-              secondaryText="Lokal konto"
+              // primaryText="Gæst"
+              primaryText={t("layout.avatarPrimary")}
+              secondaryText={t("layout.avatarSecondary")}
             />
           </div>
           <div className={navbuttons.content}>
@@ -97,7 +100,7 @@ export const Layout = () => {
               appearance="transparent"
               onClick={() => handleClick("/")}
             >
-              Startside
+              {t("layout.start")}
             </Button>
           </div>
           <div className={navbuttons.content}>
@@ -106,29 +109,29 @@ export const Layout = () => {
               appearance="transparent"
               onClick={() => handleClick("/fileadmin")}
             >
-              Fil Administration
+              {t("layout.fileadmin")}
             </Button>
           </div>
           <div className={navbuttons.content}>
             <Button icon={<Alert24Regular />} appearance="transparent">
-              Notifikationer
+              {t("layout.notifications")}
             </Button>
           </div>
           <div className={navbuttons.content}>
             <Button icon={<Apps24Regular />} appearance="transparent">
-              Apps
+              {t("layout.apps")}
             </Button>
           </div>
           <div className={navbuttons.content}>
             <Button icon={<Share24Regular />} appearance="transparent">
-              Deling
+              {t("layout.sharing")}
             </Button>
           </div>
         </DrawerBody>
       </InlineDrawer>
 
       <div className={navstyles.content}>
-        <h1>iEDI FastTimeIt</h1>
+        <h1>{t("layout.product")}</h1>
         <Outlet />
       </div>
     </div>

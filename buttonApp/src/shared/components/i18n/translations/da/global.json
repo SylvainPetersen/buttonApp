@@ -1,0 +1,16 @@
+{
+    "layout":{
+        "product": "iEDI FastTimeIt",
+        "start": "Startside",
+        "fileadmin": "Fil Administration",
+        "notifications": "Notifikationer",
+        "apps": "Apps",
+        "sharing": "Deling",
+        "avatarPrimary":"Gæst",
+        "avatarSecondary":"Lokal Konto"
+    },
+    "start":{
+        "welcome": "Velkommen",
+        "description": "FastTimeIt er installeret korrekt på denne computer."
+    }
+}

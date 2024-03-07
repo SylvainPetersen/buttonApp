@@ -1,0 +1,16 @@
+{
+    "layout":{
+        "product": "iEDI FastTimeIt",
+        "start": "Start Page",
+        "fileadmin": "File Administration",
+        "notifications": "Notifications",
+        "apps": "Apps",
+        "sharing": "Sharing",
+        "avatarPrimary":"Guest",
+        "avatarSecondary":"Local Account"
+    },
+    "start":{
+        "welcome": "Welcome",
+        "description": "FastTimeIt is correctly installed on this computer."
+    }
+}
