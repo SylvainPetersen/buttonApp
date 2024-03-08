@@ -63,6 +63,11 @@ const items: Item[] = [
     description: { label: "Test Forbrug" },
     lastUpdate: { label: "30 sekunder siden" },
   },
+  {
+    time: { label: "30 minutes", icon: <CalendarRegular /> },
+    description: { label: "Test2 Forbrug" },
+    lastUpdate: { label: "7 timer siden" },
+  },
 ];
 
 const columns: TableColumnDefinition<Item>[] = [
