@@ -2,15 +2,27 @@
     "layout":{
         "product": "iEDI FastTimeIt",
         "start": "Start Page",
-        "fileadmin": "File Administration",
+        "fileadmin": "Time Registration",
         "notifications": "Notifications",
         "apps": "Apps",
         "sharing": "Sharing",
         "avatarPrimary":"Guest",
-        "avatarSecondary":"Local Account"
+        "avatarSecondary":"Local Account",
+        "language":"English"
     },
     "start":{
         "welcome": "Welcome",
         "description": "FastTimeIt is correctly installed on this computer."
+    },
+    "fileadmin":{
+        "input": "Time (minutes)",
+        "success": "Time has been registered.",
+        "description": "Description",
+        "date": "Date"
+    },
+    "datagrid":{
+        "time":"Time",
+        "description":"Description",
+        "lastChanged":"Last Changed"
     }
 }

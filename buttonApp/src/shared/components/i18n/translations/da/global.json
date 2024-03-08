@@ -2,15 +2,27 @@
     "layout":{
         "product": "iEDI FastTimeIt",
         "start": "Startside",
-        "fileadmin": "Fil Administration",
+        "fileadmin": "Tids Registrering",
         "notifications": "Notifikationer",
         "apps": "Apps",
         "sharing": "Deling",
         "avatarPrimary":"Gæst",
-        "avatarSecondary":"Lokal Konto"
+        "avatarSecondary":"Lokal Konto",
+        "language":"Dansk"
     },
     "start":{
         "welcome": "Velkommen",
         "description": "FastTimeIt er installeret korrekt på denne computer."
+    },
+    "fileadmin":{
+        "input": "Tid (minutter)",
+        "success": "Tiden er registreret.",
+        "description": "Beskrivelse",
+        "date": "Dato"
+    },
+    "datagrid":{
+        "time":"Forbrug",
+        "description":"Beskrivelse",
+        "lastChanged":"Sidst Ændret"
     }
 }

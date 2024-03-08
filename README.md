@@ -21,3 +21,4 @@ npm install react-router-dom
 npm install react-i18next
 npm install i18next
 npm install react-intl
+npm install @fluentui/react-datepicker-compat

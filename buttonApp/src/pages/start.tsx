@@ -29,13 +29,13 @@ const useStyles = makeStyles({
 export function Start() {
   const divstyles = useStyles();
   const options = ["Dansk", "English"];
-  const [selected, setSelected] = useState({ key: options[0] });
+  // const [selected, setSelected] = useState({ key: options[0] });
   const [t, i18n] = useTranslation("global");
 
-  const handleChange = (option: string) => {
-    i18n.changeLanguage(option);
-    setSelected({ ...selected, key: option });
-  };
+  // const handleChange = (option: string) => {
+  //   i18n.changeLanguage(option);
+  //   setSelected({ ...selected, key: option });
+  // };
 
   return (
     <>
@@ -47,14 +47,15 @@ export function Start() {
           <p>{t("start.description")}</p>
         </div>
         <div>
-          <Dropdown placeholder={selected.key}>
+          <Dropdown placeholder={t("layout.language")}>
             {options
-              .filter((options) => !options.includes(selected.key))
+              .filter((options) => !options.includes(t("layout.language")))
               .map((option) => (
                 <Option
                   key={option}
                   onClick={() => {
-                    handleChange(option);
+                    // handleChange(option);
+                    i18n.changeLanguage(option);
                   }}
                 >
                   {option}
