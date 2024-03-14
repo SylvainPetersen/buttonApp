@@ -23,7 +23,7 @@ import {
   TableColumnDefinition,
   createTableColumn,
 } from "@fluentui/react-components";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DatePicker } from "@fluentui/react-datepicker-compat";
 import { CalendarRegular } from "@fluentui/react-icons";
@@ -114,50 +114,63 @@ const columns: TableColumnDefinition<Item>[] = [
   }),
 ];
 
+const defaultFormData = {
+  date: new Date(),
+  time: 0,
+  description: "",
+};
+
 export function Fileadmin() {
   const divstyles = useStyles();
   const [t, i18n] = useTranslation("global");
-  const [time, setTime] = useState(0);
+
+  const [formData, setFormData] = useState(defaultFormData);
+  const { date, time, description } = formData;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData(defaultFormData);
+  };
+
+  const handleChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  };
 
   return (
     <>
       <div className={divstyles.content}>
-        <form
-          onSubmit={() => {
-            console.log("okay");
-          }}
-        >
+        <form>
           <Field label={t("fileadmin.date")}>
-            <DatePicker />
+            <DatePicker id="date" onChange={handleChange} value={date} />
           </Field>
           <div>
             <Label>{t("fileadmin.input")}</Label> <br />
-            <SpinButton defaultValue={0} step={15} min={0} max={660} />
+            <SpinButton
+              id="time"
+              step={15}
+              min={0}
+              max={660}
+              onClick={handleChange}
+              // value={time}
+            />
           </div>
-          <Field
-            label={t("fileadmin.description")}
-            validationState="success"
-            validationMessage={t("fileadmin.success")}
-          >
-            <Input />
+          <Field label={t("fileadmin.description")}>
+            <Input
+              type="text"
+              id="description"
+              onChange={handleChange}
+              value={description}
+            />
           </Field>
-          <Button type="submit">Register</Button>
+          <Button type="submit" onClick={handleSubmit}>
+            Register
+          </Button>
         </form>
-        {/* <Field label={t("fileadmin.date")}>
-          <DatePicker />
-        </Field>
-        <div>
-          <Label>{t("fileadmin.input")}</Label> <br />
-          <SpinButton defaultValue={0} step={15} min={0} max={660} />
-        </div>
-        <Field
-          label={t("fileadmin.description")}
-          validationState="success"
-          validationMessage={t("fileadmin.success")}
-        >
-          <Input />
-        </Field>
-        <Button>Register</Button> */}
+
         <DataGrid
           items={items}
           columns={columns}
