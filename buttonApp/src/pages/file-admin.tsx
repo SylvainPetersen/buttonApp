@@ -125,13 +125,20 @@ export function Fileadmin() {
   const [t, i18n] = useTranslation("global");
 
   const [formData, setFormData] = useState(defaultFormData);
-  const { date, time, description } = formData;
+  // const { date, time, description } = formData;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
     setFormData(defaultFormData);
   };
+
+  // const handleChange = (e) => {
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [e.target.id]: e.target.value,
+  //   }));
+  // };
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -140,12 +147,30 @@ export function Fileadmin() {
     }));
   };
 
+  const handleDate = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      ["date"]: e,
+    }));
+  };
+
   return (
     <>
       <div className={divstyles.content}>
         <form>
           <Field label={t("fileadmin.date")}>
-            <DatePicker id="date" onChange={handleChange} value={date} />
+            {/* <DatePicker id="date" onChange={handleChange} value={date} /> */}
+            <DatePicker
+              id="date"
+              // onChange={(event) => {
+              //   console.log(event);
+              //   handleChange(event);
+              // }}
+              onSelectDate={(event) => {
+                // console.log(event);
+                handleDate(event);
+              }}
+            />
           </Field>
           <div>
             <Label>{t("fileadmin.input")}</Label> <br />
@@ -154,8 +179,8 @@ export function Fileadmin() {
               step={15}
               min={0}
               max={660}
-              onClick={handleChange}
-              // value={time}
+              onChange={handleChange}
+              defaultValue={0}
             />
           </div>
           <Field label={t("fileadmin.description")}>
@@ -163,7 +188,7 @@ export function Fileadmin() {
               type="text"
               id="description"
               onChange={handleChange}
-              value={description}
+              defaultValue=""
             />
           </Field>
           <Button type="submit" onClick={handleSubmit}>
